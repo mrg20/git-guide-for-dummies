@@ -35,10 +35,10 @@ Un commit és una versió del nostre programa, que hem guardat.
 *Exemple*
 ```
 |____ i18n  <= Un commit
-|      |___ fitxer 'mgra' modificat
-|      |___ fitxer 'mcli' eliminat
+|      |___ fitxer 'olla.js' modificat
+|      |___ fitxer 'index.html' eliminat
 |____ a32c  <= Un altre commit
-       |___ fitxer 'mcli00' creat
+       |___ fitxer 'router.ts' creat
 ```
 
 **Branca:**
@@ -48,10 +48,10 @@ Una branca és una cadena de commits. En el cas anterior era la branca master.
 ```
 master
 |____ i18n  <= Un commit
-|      |___ fitxer 'mgra' modificat
-|      |___ fitxer 'mcli' eliminat
+|      |___ fitxer 'olla.js' modificat
+|      |___ fitxer 'index.html' eliminat
 |____ a32c  <= Un altre commit
-       |___ fitxer 'mcli00' creat
+       |___ fitxer 'router.ts' creat
 ```
 
 **Nosaltres:**
