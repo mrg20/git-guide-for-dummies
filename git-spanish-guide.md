@@ -317,9 +317,9 @@ Local     \        \
 
 ### Git revert
 
-Este comando es simple, pero muy peligroso. Si hemos hecho un merge con una rama equivocada, o un error que el commit anterior no tenía, este comando es el indicado, pero si nuetsro objetivo es tirar más de un commit atrás, hay que vigilar mucho con este comando, ya que puede provocar muchos errores.
+Este comando es simple, pero muy peligroso. Si hemos hecho un merge con una rama equivocada, o un error que el commit anterior no tenía, este comando es el indicado, pero si nuestro objetivo es tirar más de un commit atrás, hay que vigilar mucho con este comando, ya que puede provocar muchos errores.
 
-La intención del comando es hacer un nuevo commir con el uso de un commit anterior. ¿Qué quiere decir esto? Podriemos decir que es un backup de información anterior.
+La intención del comando es hacer un nuevo commit con el uso de un commit anterior. ¿Qué quiere decir esto? Podriamos decir que es un backup de información anterior.
 
 *Ejemplo*
 ```
