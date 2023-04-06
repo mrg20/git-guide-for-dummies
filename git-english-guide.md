@@ -193,21 +193,21 @@ If we enter the file, we will have a structure like this:
 Here we have to decide which code we keep and which we don't, or which modifications need to be made according to which code. Therefore, we modify the file fixing the conflict and delete the code that we don't want along with the messages that git has created.
 
 ## Part 2
-En el nivell anterior s'ha comentat l'ús de git guardant la informació localment, en l'ordinador propi. L'objectiu d'aquest nivell és explicar l'ús de git remot, a un repositori d'internet.
+In the previous level, the use of git was discussed by storing information locally on one's own computer. The objective of this level is to explain the use of remote git, in an internet repository.
 
 ### Git clone
-Si volem treballar sobre un repositori d'internet, hem d'utilitzar la comanda >git clone [enllaç http o ssh que ens proporciona el repositori].
-Un exemple seria > git clone https://github.com/exemple/directori.git
-Aquesta comanda descarrega la branca master, les altres branques s'elegeix amb altres comandes que veurem.
+If we want to work on an internet repository, we must use the command `> git clone [http or ssh link provided by the repository]`.
+An example would be `> git clone https://github.com/example/directory.git`
+This command downloads the master branch, other branches are selected with other commands that we will see.
 
 ### Origin
-Quan es treballa amb git es pot guardar informació a local o a remot (conegut com origin). Origin és la informació connectada amb el repositori d'internet.
+When working with git, information can be saved locally or remotely (known as origin). Origin is the information connected with the internet repository.
 
-Diguem que la informació dels commits/projecte, en total, es pot guardar de tres maneres:
+Let's say that the information of the commits/project can be saved in three ways in total:
 
-*Exemple*
+*Example*
 ```
-Repositori
+Repository
 ---|-----|------|--
  j23k   l12j   k32g
 __________
@@ -220,24 +220,24 @@ Local
  j23k  a34f
 ```
 
-Com podem veure, tenim la versió del repositori, la versió d'origin, i la nostra versió, la local.
-La versió del repositori té tres commits, la versió d'origin en té dos d'ells, i finalment la branca local en té un d'ells més un que hem fet nosaltres, que no té ningú més.
-Tenim moltes possibilitats en aquesta situació, podem actualitzar l'origin, podem actualitzar el local sense actualitzar origin, podem actualitzar origin i local a la vegada, etc...
+As we can see, we have the repository version, the origin version, and our own version, the local one.
+The repository version has three commits, the origin version has two of them, and finally the local branch has one of them plus one that we have made ourselves, which no one else has.
+We have many possibilities in this situation, we can update the origin, we can update the local without updating origin, we can update origin and local at the same time, etc...
 
 ### Git pull origin branch
 
-Quan nosaltres estem en local i volem descarregar informació del repositori, s'han de seguir uns passos.
+When we are working locally and we want to download information from the repository, certain steps must be followed.
 
-Primer de tot, s'ha de tenir una branca amb el mateix nom que la branca que volem descarregar o actualitzar. Per tant, si volem descarregar la branca development i no la tenim creada, haurem de fer git branch development => git checkout development.
+First of all, we must have a branch with the same name as the branch we want to download or update. Therefore, if we want to download the development branch and we haven't created it, we will have to do git branch development => git checkout development.
 
-Quan tenim una branca amb el mateix nom que al repositori, ja podem utilitzar la comanda git pull origin [nom de la branca]. Aquesta comanda agafarà la informació del repositori i actualitzarà Origin i Local (la branca des de la que hem executat la comanda).
+When we have a branch with the same name as the one in the repository, we can already use the command git pull origin [branch name]. This command will take the information from the repository and update Origin and Local (the branch from which we have executed the command).
 
-Atenció, si tenim alguns commits en la branca local, que no té el repositori, i toquen la mateixa part de codi que els commits que descarreguem, hi haurà conflictes, s'hauran de solucionar.
+Attention, if we have some commits in the local branch that are not in the repository and they touch the same part of the code as the commits we download, there will be conflicts that will need to be resolved.
 
-*Exemple*
+*Example*
 ```
 > git pull origin development
-Repositori
+Repository
 ---|-----|------|-- <= development
  j23k   l12j   k32g
 __________      \
@@ -253,11 +253,11 @@ Local     \        \
 
 ### Git push origin branch
 
-Quan la nostra versió (Local) del projecte té tots els commits del repositori, i a més a més té commits que hem fet nostaltres, ens interessa actualitzar el repositori. Per fer-ho, utilitzarem la comanda git push origin [nom de la branca]. Aquesta comanda agafa tots els commits que tenim en la nostra branca, i els envia al repositori remot, actualitzant-ho.
+When our version (Local) of the project has all the commits from the repository and also has commits that we have made, we are interested in updating the repository. To do this, we will use the command git push origin [branch name]. This command takes all the commits we have in our branch and sends them to the remote repository, updating it.
 
-*Exemple*
+*Example*
 ```
-Repositori                   a34f
+Repository                   a34f
 ---|-----|------|-------------|- <= development
  j23k   l12j   k32g          /
 __________                  /
@@ -270,7 +270,7 @@ Local                  /
  j23k   l12j   k32g  a34f
 ```
 
-També podem fer git push -u origin [nom branca], aixi les següents vegades només fara falta utilitzar la comanda git push i git ja sabrà a quina localització fer push.
+We can also use git push -u origin [branch name], so that the next times we only need to use the git push command and Git will know where to push to.
 
 ## Part 3
 
