@@ -274,18 +274,18 @@ We can also use git push -u origin [branch name], so that the next times we only
 
 ## Part 3
 
-En aquest apartat veurem més a fons les comandes que treballen sobre origin i el repositori, a part de comandes més complexes.
+In this section we will take a closer look at the commands that work with origin and the repository, as well as more complex commands.
 
 ### Git fetch
-Si la nostra intenció és actualitzar l'origin descarregant les dades del repositori, hem d'actualitzar git fetch.
+If our intention is to update origin by downloading data from the repository, we need to update with git fetch.
 
-*Exemple*
+*Example*
 ```
 > git pull origin development
-Repositori
+Repository
 ---|-----|------|-- <= development
  j23k   l12j   k32g
-__________      \   <= >git fetch
+__________      \   <= > git fetch
 Origin           \
 ---|-----|--------|- <= development
  j23k   l12j     k32g
@@ -293,35 +293,35 @@ Origin           \
 
 ### Git pull
 
-Si el que volem és actualitzar l'origin i actualitzar la branca en la que treballem, utilitzarem git pull. Aquesta comanda és una convinació de git fetch i git merge "branca en la que estem", és a dir:
+If we want to update origin and update the branch we are working on, we will use git pull. This command is a combination of git fetch and git merge "current branch", that is:
 
-*Exemple*
+*Example*
 ```
->git pull == >git fetch => >git merge
+> git pull == > git fetch => > git merge
 
-Repositori
+Repository
 ---|-----|------|-- <= development
  j23k   l12j   k32g
 __________      \   <= git fetch
 Origin           \
 ---|-----|--------|- <= development
  j23k   l12j     k32g
-_________\        \ <= git merge "branca en la que estem"
+_________\        \ <= git merge "Branch where we are"
 Local     \        \
 ---|-----|-|--------|- <= development
  j23k  a34f        k32g
           l12j
 ```
 
-Que significa això? Aquesta comanda es molt util, però a vegades perillosa. Si estem treballant sobre una branca i fem modificacions que no té el repositori, aquesta comanda pot ocasionar conflictes (en la part de merge).
+What does this mean? This command is very useful, but sometimes dangerous. If we are working on a branch and make modifications that are not in the repository, this command can cause conflicts (in the merge part).
 
 ### Git revert
 
-Aquesta comanda es simple, però molt perillosa. Si hem fet un merge amb una branca equivocada, o un error que el commit anterior no tenia, aquesta comanda es l'indicada, però si el nostre objectiu es tirar més d'un commit enrere, s'ha de vigilar molt amb aquesta comanda, ja que pot provocar molts errors.
+This command is simple but very dangerous. If we have merged with the wrong branch or made an error that the previous commit did not have, this command is appropriate. However, if our goal is to go back more than one commit, we must be very careful with this command, as it can cause many errors.
 
-L'intencio de la comanda és fer un nou commit amb l'ús d'un commit anterior. Que vol dir això? Podriem dir que es un backup d'informació anterior.
+The intention of the command is to make a new commit using a previous commit. What does this mean? We could say that it is a backup of previous information.
 
-*Exemple*
+*Example*
 ```
 --------|---------|-------|-- <= popUp
       g45o      i15g    a31o
@@ -331,7 +331,7 @@ L'intencio de la comanda és fer un nou commit amb l'ús d'un commit anterior. Q
                    ____________
                   /            \
 --------|---------|-------|-----| <= popUp
-      g45o      i15g    a31o   w32v (anterior commit i15g)
+      g45o      i15g    a31o   w32v (previous commit i15g)
 ```
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
