@@ -120,10 +120,10 @@ Earlier we saw that from the master branch, the development sub-branch was creat
 
 *Example*
 ```
-        i18n a32c
+        i18n              a32c
 ---------|-----------------|-------------- master <= We
-        \ <= > git branch development
-        \ development
+                           \ <= > git branch development
+                            \ development
 ```
 
 ### Git checkout
@@ -132,19 +132,19 @@ When we have multiple branches, such as master, development, feature1, feature2,
 
 *Example*
 ```
-        i18n a32c
+        i18n              a32c
 ---------|-----------------|-------------- master <= We
-        \
-        |------------ development
-        c43k
+                           \
+                            |------------ development
+                           c43k
 
 > git checkout development
 
         i18n a32c
 ---------|-----------------|-------------- master
-        \
-        |------------ development <= We
-        c43k
+                            \
+                             |------------ development <= We
+                            c43k
 
 ```
 
@@ -159,8 +159,8 @@ When we have two different branches with different commits, we may be interested
 a32c i23s 3fs1
 |-----|----|----- master <= We
 \
-        |------|---|---- development
-u42a n42m h21k
+ |------|---|---- development
+u42a   n42m h21k
 ```
 
 We want to make master branch gain the functionalities from development, therefore we will do `> git merge development`. ATTENTION if we do git merge master from the development branch, it will be development who gains the functionalities from master and not the other way around.
@@ -169,9 +169,9 @@ We want to make master branch gain the functionalities from development, therefo
 > git merge development
 a32c i23s 3fs1
 |-----|----|------|- master <= We
-\ / > git merge development
-        |------|---|---|--- development
-u42a n42m h21k
+\                / > git merge development
+ |------|---|---|--- development
+u42a   n42m h21k
 ```
 
 When we use this command, two things can happen. The first is that nothing happens and master has both functionalities, this is the best possibility. The problem arises if the commits between branches contain modifications to the same files, and here the second option appears: conflicts.
@@ -210,15 +210,15 @@ Let's say that the information of the commits/project can be saved in three ways
 ```
 Repository
 ---|-----|------|--
-        j23k l12j k32g
+ j23k   l12j   k32g
 __________
 Origin
 ---|-----|--
-        j23k l12j
+  j23k  l12j
 __________
 Local
 ---|-----|----
-        j23k a34f
+ j23k  a34f
 ```
 
 As we can see, we have the repository version, the origin version, and our version, the local one.
@@ -240,16 +240,16 @@ Attention, if we have some commits in the local branch that are not in the repos
 > git pull origin development
 Repository
 ---|-----|------|-- <= development
-        j23k l12j k32g
-__________ \
-Origin \
+  j23k  l12j   k32g
+__________      \
+Origin           \
 ---|-----|--------|- <= development
-        j23k l12j k32g
-_________\ \
-Local \ \
+  j23k  l12j     k32g
+_________\        \
+Local     \        \
 ---|-----|-|--------|- <= development
-        j23k a34f k32g
-        l12j
+ j23k  a34f        k32g
+          l12j
 ```
 
 ### Git push origin branch
@@ -258,17 +258,17 @@ When our version (Local) of the project has all the commits from the repository 
 
 *Example*
 ```
-Repository a34f
+Repository                   a34f
 ---|-----|------|-------------|- <= development
-        j23k l12j k32g /
-__________ /
-Origin a34f /
+  j23k  l12j   k32g          /
+__________                  /
+Origin                a34f /
 ---|-----|------|---------|- <= development
-        j23k l12j k32g /
-__________ /
-Local /
+ j23k   l12j    k32g     /
+__________              /
+Local                  /
 ---|-----|------|-----|--- <= development
-        j23k l12j k32g a34f
+  j23k  l12j   k32g  a34f
 ```
 
 
@@ -288,11 +288,11 @@ If we intend to update origin by downloading data from the repository, we need t
 > git pull origin development
 Repository
 ---|-----|------|-- <= development
-        j23k l12j k32g
-__________ \ <= > git fetch
-Origin \
+ j23k   l12j   k32g
+__________      \ <= > git fetch
+Origin           \
 ---|-----|--------|- <= development
-        j23k l12j k32g
+ j23k   l12j     k32g
 ```
 
 ### Git pull
@@ -305,16 +305,16 @@ If we want to update origin and update the branch we are working on, we will use
 
 Repository
 ---|-----|------|-- <= development
-        j23k l12j k32g
-__________ \ <= git fetch
-Origin \
+  j23k  l12j   k32g
+__________      \ <= git fetch
+Origin           \
 ---|-----|--------|- <= development
-        j23k l12j k32g
-_________\ \ <= git merge "Branch where we are"
-Local \ \
+  j23k  l12j     k32g
+_________ \       \ <= git merge "Branch where we are"
+Local      \       \
 ---|-----|-|--------|- <= development
-        j23k a34f k32g
-        l12j
+ j23k   a34f       k32g
+          l12j
 ```
 
 What does this mean? This command is very useful but sometimes dangerous. If we are working on a branch and make modifications that are not in the repository, this command can cause conflicts (in the merge part).
@@ -328,14 +328,14 @@ The command intends to make a new commit using a previous commit. What does this
 *Example*
 ```
 --------|---------|-------|-- <= popUp
-        g45o i15g a31o
+       g45o     i15g    a31o
 
 > git revert i15g
 
-        ____________
-        / \
+                   ____________
+                  /            \
 --------|---------|-------|-----| <= popUp
-        g45o i15g a31o w32v (previous commit i15g)
+       g45o     i15g     a31o  w32v (previous commit i15g)
 ```
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
