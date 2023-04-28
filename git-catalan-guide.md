@@ -1,6 +1,6 @@
 # Pautes a seguir per git
 
-En aquest document trobaràs comandes de git, juntament amb el seu ús i explicació. Les comandes estan agrupades en tres nivells, ja que no totes són igual d'entenedores o simples, ni igual d'importants. Amb els dos primers nivells n'hi ha prou com per poder treballar amb el repositori.
+En aquest document trobaràs comandes de git, juntament amb el seu ús i explicació. Les comandes estan agrupades en tres nivells, ja que no totes són igual d'entenedores o simples, ni igual d'importants. Amb els dos primers nivells n'hi ha prou per a poder treballar amb el repositori.
 
 ## Índex
 ### Part 1 (Local)
@@ -68,7 +68,7 @@ Nosaltres sempre estem en qualsevol branca, per defecte sempre mirem l'últim co
 
 En aquest últim exemple veiem una nova sub branca, anomenada development. Nosaltres estem apuntant allà, i podem tornar a master si volem amb una simple comanda (més tard ho veurem).
 
-Aquesta nova sub branca, en el moment que s'ha creat (si, té una comanda per fer-ho), passa a ser independent de master, i els commits que és facin en aquesta nova branca no els tindrà development. Ho podem veure com si caminéssim per un camí que es diu master, i de cop i volta ens trobem una bifurcació, master continua cap a l'esquerra i a la dreta tenim un camí que es diu development. Tot el que passi a development, no passarà a master, i tot el que passi a master (a partir de la bifurcació), no passarà a development.
+Aquesta nova sub branca, en el moment que s'ha creat (si, té una comanda per fer-ho), passa a ser independent de master, i els commits que es facin en aquesta nova branca no els tindrà development. Ho podem veure com si caminéssim per un camí que es diu master, i de cop i volta ens trobem una bifurcació, master continua cap a l'esquerra i a la dreta tenim un camí que es diu development. Tot el que passi a development, no passarà a master, i tot el que passi a master (a partir de la bifurcació), no passarà a development.
 
 
 ### Git add
@@ -88,7 +88,7 @@ Quan ja li hem dit a git tots els fitxers que volem que es guardin en el següen
 
 *Exemple*
 ```
-> git commit -m "Realitzada una modificacio en el tractament de taules sobre les granges modificades"
+> git commit -m "Realitzada una modificació en el tractament de taules sobre les granges modificades"
 ```
 
 És MOLT important que els missatges de commit siguin descriptius, indicant que conté aquell commit (així si mai volem veure una modificació, sabrem a quina anar només per aquest missatge).
@@ -127,7 +127,7 @@ Abans hem vist que de la branca master, sortia la sub branca development (si no 
 
 ### Git checkout
 
-Quan tenim vàries branques, com per exemple master, development, funcionalitat1, funcionalitat2, etc... Hem de poder moure'ns entre aquestes branques d'alguna manera. Per fer-ho utilitzem git checkout [nom de la branca]
+Quan tenim diverses branques, com per exemple master, development, funcionalitat1, funcionalitat2, etc... Hem de poder moure'ns entre aquestes branques d'alguna manera. Per fer-ho utilitzem git checkout [nom de la branca]
 
 *Exemple*
 ```
@@ -149,7 +149,7 @@ Quan tenim vàries branques, com per exemple master, development, funcionalitat1
 
 ### Git merge
 
-Aquesta és la comanda més difícil del nivell 1. Normalment en el projecte es farà només merge una vegada acabada cada funcionalitat, cap a development. Sempre hi ha una persona encargada de fer els merge de totes les branques a development, per tant, prohibit utilitzar aquesta comanda cap a development sense permís.
+Aquesta és la comanda més difícil del nivell 1. Normalment en el projecte es farà només merge una vegada acabada cada funcionalitat, cap a development. Sempre hi ha una persona encarregada de fer els merge de totes les branques a development, per tant, prohibit utilitzar aquesta comanda cap a development sense permís.
 
 Quan nosaltres tenim dues branques diferents i amb commits diferents entre elles, potser ens interessa ajuntar el codi d'una branca, amb el codi de l'altra. Això ho farem amb la comanda git merge [nom de la branca que volem agafar]
 
@@ -230,7 +230,7 @@ Quan nosaltres estem en local i volem descarregar informació del repositori, s'
 
 Primer de tot, s'ha de tenir una branca amb el mateix nom que la branca que volem descarregar o actualitzar. Per tant, si volem descarregar la branca development i no la tenim creada, haurem de fer git branch development => git checkout development.
 
-Quan tenim una branca amb el mateix nom que al repositori, ja podem utilitzar la comanda git pull origin [nom de la branca]. Aquesta comanda agafarà la informació del repositori i actualitzarà Origin i Local (la branca des de la que hem executat la comanda).
+Quan tenim una branca amb el mateix nom que al repositori, ja podem utilitzar la comanda git pull origin [nom de la branca]. Aquesta comanda agafarà la informació del repositori i actualitzarà Origin i Local (la branca des de la qual hem executat la comanda).
 
 Atenció, si tenim alguns commits en la branca local, que no té el repositori, i toquen la mateixa part de codi que els commits que descarreguem, hi haurà conflictes, s'hauran de solucionar.
 
@@ -270,7 +270,7 @@ Local                  /
  j23k   l12j   k32g  a34f
 ```
 
-També podem fer git push -u origin [nom branca], aixi les següents vegades només fara falta utilitzar la comanda git push i git ja sabrà a quina localització fer push.
+També podem fer git push -u origin [nom branca], així les següents vegades només farà falta utilitzar la comanda git push i git ja sabrà a quina localització fer push.
 
 ## Part 3
 
@@ -293,7 +293,7 @@ Origin           \
 
 ### Git pull
 
-Si el que volem és actualitzar l'origin i actualitzar la branca en la que treballem, utilitzarem git pull. Aquesta comanda és una convinació de git fetch i git merge "branca en la que estem", és a dir:
+Si el que volem és actualitzar l'origin i actualitzar la branca en la qual treballem, utilitzarem git pull. Aquesta comanda és una convinació de git fetch i git merge "branca en la qual estem", és a dir:
 
 *Exemple*
 ```
@@ -313,13 +313,13 @@ Local     \        \
           l12j
 ```
 
-Que significa això? Aquesta comanda es molt util, però a vegades perillosa. Si estem treballant sobre una branca i fem modificacions que no té el repositori, aquesta comanda pot ocasionar conflictes (en la part de merge).
+Que significa això? Aquesta comanda és molt útil, però a vegades perillosa. Si estem treballant sobre una branca i fem modificacions que no té el repositori, aquesta comanda pot ocasionar conflictes (en la part de merge).
 
 ### Git revert
 
 Aquesta comanda es simple, però molt perillosa. Si hem fet un merge amb una branca equivocada, o un error que el commit anterior no tenia, aquesta comanda es l'indicada, però si el nostre objectiu es tirar més d'un commit enrere, s'ha de vigilar molt amb aquesta comanda, ja que pot provocar molts errors.
 
-L'intencio de la comanda és fer un nou commit amb l'ús d'un commit anterior. Que vol dir això? Podriem dir que es un backup d'informació anterior.
+La intenció de la comanda és fer un nou commit amb l'ús d'un commit anterior. Que vol dir això? Podríem dir que és un backup d'informació anterior.
 
 *Exemple*
 ```

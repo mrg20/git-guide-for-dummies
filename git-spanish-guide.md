@@ -182,11 +182,7 @@ Si entramos en el fichero, tendremos una estructura así:
 
 *Ejemplo*
 ```
-<<<<<<< HEAD
-// Aquí está el codigo que tenemos
-=======
-// Aqueí está el código nuevo
->>>>>>> Commit de la rama que nos queremos quedar
+// Aquí está el código nuevo
 ```
 
 Aquí hay que decidir con qué código nos quedamos y con cuál no, o qué modificaciones hay que hacer según el código. Por tanto, modificamos el fichero arreglando el conflicto y borramos el código que no queremos juntamente con los mensajes que ha creado git.
@@ -318,7 +314,8 @@ Local     \        \
 
 Este comando es simple, pero muy peligroso. Si hemos hecho un merge con una rama equivocada, o un error que el commit anterior no tenía, este comando es el indicado, pero si nuestro objetivo es tirar más de un commit atrás, hay que vigilar mucho con este comando, ya que puede provocar muchos errores.
 
-La intención del comando es hacer un nuevo commir con el uso de un commit anterior. ¿Qué quiere decir esto? Podríamos decir que es un backup de información anterior.
+
+La intención del comando es hacer un nuevo commit con el uso de un commit anterior. ¿Qué quiere decir esto? Podriamos decir que es un backup de información anterior.
 
 *Ejemplo*
 ```
