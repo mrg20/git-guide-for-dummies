@@ -1,6 +1,6 @@
 # Pautas a seguir para git
 
-En este documento encontrarás comandos de git, junto con su udo y explicación. Los comandos están agrupados en tres niveles, ya que no todos son iguales de entender o igual de siemples o importantes. Con los dos primeros niveles, tendremos suficiente para poder trabajar con el repositorio.
+En este documento encontrarás comandos de git, junto con su uso y explicación. Los comandos están agrupados en tres niveles, ya que no todos son iguales de entender o igual de simples o importantes. Con los dos primeros niveles, tendremos suficiente para poder trabajar con el repositorio.
 
 ## Índice
 ### Parte 1 (Local)
@@ -12,13 +12,13 @@ En este documento encontrarás comandos de git, junto con su udo y explicación.
 * [Git checkout](#git-checkout)
 * [Git merge](#git-merge)
 
-### Parte 2 (Origin part 1)
+### Parte 2 (Origin parte 1)
 * [Git clone](#git-clone)
 * [Origin](#origin)
-* [Git pull origin branca](#git-pull-origin-branca)
-* [Git push origin branca](#git-push-origin-branca)
+* [Git pull origin rama](#git-pull-origin-rama)
+* [Git push origin rama](#git-push-origin-rama)
 
-### Parte 3 (Origin part 2)
+### Parte 3 (Origin parte 2)
 * [Git fetch](#git-fetch)
 * [Git pull](#git-pull)
 * [Git revert](#git-revert)
@@ -55,7 +55,7 @@ master
 ```
 
 **Nosotros:**
-Nosotros siempre estamos en alguna rama. Por defecto siempre miramos el último commit que hemos hecho con las cosas nuevas que vamos vamos escribiendo (también podemos navegar por los commits de una rama, de momento no lo miraremos porque solo complica las cosas y casi nunca hace falta hacerlo).
+Nosotros siempre estamos en alguna rama. Por defecto siempre miramos el último commit que hemos hecho con las cosas nuevas que vamos escribiendo (también podemos navegar por los commits de una rama, de momento no lo miraremos porque solo complica las cosas y casi nunca hace falta hacerlo).
 
 *Ejemplo*
 ```
@@ -68,12 +68,11 @@ Nosotros siempre estamos en alguna rama. Por defecto siempre miramos el último 
 
 En este último ejemplo vemos una nueva subrama, que se llama "development". Nosotros estamos apuntando allí y podemos volver a la rama master si queremos con un simple comando (más tarde lo veremos).
 
-Esta nueva subrama, en el momento que se ha creado (sí, hay un comando para hacerlo), pasa a ser independiente de la rama master y los commits que se hagan en esta nueva rama no los tendrá la otra. Lo podemos ver como si caminésemos por un camino que se llama master, y de golpe nos encontramos una biifurcación. Master continua hacia la izquierda y a la derecha tenemos un camino que se llama development. Todo lo que pase en development, no pasará en máster y todo lo que pase en master (a partir de la bifurcación), no pasará en development.
-
+Esta nueva subrama, en el momento que se ha creado (sí, hay un comando para hacerlo), pasa a ser independiente de la rama master y los commits que se hagan en esta nueva rama no los tendrá la otra. Lo podemos ver como si caminásemos por un camino que se llama master, y de golpe nos encontramos una bifurcación. Master continua hacia la izquierda y a la derecha tenemos un camino que se llama development. Todo lo que pase en development, no pasará en máster y todo lo que pase en master (a partir de la bifurcación), no pasará en development.
 
 ### Git add
 
-Cuando modificamos un fichero, git sabe que se ha modificado, pero no sabe si hay que guardar est anueva modificación en el siguiente commit. Por tanto, utilizando el comando git add nombreDelFichero le decimos a git que en el próximo commit, las acciones realizadas sobre ese fichero, se guardarán.
+Cuando modificamos un fichero, git sabe que se ha modificado, pero no sabe si hay que guardar esta nueva modificación en el siguiente commit. Por tanto, utilizando el comando git add nombreDelFichero le decimos a git que en el próximo commit, las acciones realizadas sobre ese fichero, se guardarán.
 
 *Ejemplo*
 ```
@@ -127,7 +126,7 @@ Antes hemos visto que de la rama master, salía la subrama development (si no lo
 
 ### Git checkout
 
-Cuando tenemos varias ramas, como por ejemplo master, development, funcionalidad1, funcionalidad2, etc.... Tenemos que poder movernos entre estas ramas de alguna forma. Para ello utilizaremos git checkout [nombre de la rama].
+Cuando tenemos varias ramas, como por ejemplo master, development, funcionalidad1, funcionalidad2, etc. Tenemos que poder movernos entre estas ramas de alguna forma. Para ello utilizaremos git checkout [nombre de la rama].
 
 *Ejemplo*
 ```
@@ -149,7 +148,7 @@ Cuando tenemos varias ramas, como por ejemplo master, development, funcionalidad
 
 ### Git merge
 
-Este es el comando más dificil del nivel 1. Normalmente, en el proyecto se hará solo merge una vez cada vez que se acaba cada funcionalidad, hacia development. Siempre hay una persona encargada de hacer merge de todas las ramas a development, por tanto, está prohibido utlizar este comando hacia desarrollo sin permiso. 
+Este es el comando más difícil del nivel 1. Normalmente, en el proyecto se hará solo merge una vez cada vez que se acaba cada funcionalidad, hacia development. Siempre hay una persona encargada de hacer merge de todas las ramas a development, por tanto, está prohibido utilizar este comando hacia desarrollo sin permiso.
 
 Cuando nosotros tenemos dos ramas diferentes y con conflictos entre ellas, quizás nos interesa juntar código de una rama con el código de otra. Esto lo haremos con el comando git merge [nombre de la rama que queremos coger].
 
@@ -173,7 +172,7 @@ a32c  i23s 3fs1
 u42a   n42m h21k
 ```
 
-Cuando utilizamos este comando,  pueden pasar dos cosas. La primera es que no pase nada y que master tenga las funcionalidades que queríamos. Esta es la mejor posibilidad. El problema, es si los commit entre las ramas contienen modificaciónes sobre los mismos ficheros, y aquí aparece las segunda opción, conflictos.
+Cuando utilizamos este comando, pueden pasar dos cosas. La primera es que no pase nada y que master tenga las funcionalidades que queríamos. Esta es la mejor posibilidad. El problema es si los commit entre las ramas contienen modificaciones sobre los mismos ficheros, y aquí aparece las segunda opción, conflictos.
 
 **Conflictos**
 
@@ -183,20 +182,16 @@ Si entramos en el fichero, tendremos una estructura así:
 
 *Ejemplo*
 ```
-<<<<<<< HEAD
-// Aquí está el codigo que tenemos
-=======
-// Aqueí está el código nuevo
->>>>>>> Commit de la rama que nos queremos quedar
+// Aquí está el código nuevo
 ```
 
-Aquí hay que decidir con qué código nos quedamos y con cual no, o qué modificaciones hay que hacer según el código. Por tanto, modificamos el fichero arreglando el conflicto y borramos el código que no queremos juntamente con los mensajes que ha creado git.
+Aquí hay que decidir con qué código nos quedamos y con cuál no, o qué modificaciones hay que hacer según el código. Por tanto, modificamos el fichero arreglando el conflicto y borramos el código que no queremos juntamente con los mensajes que ha creado git.
 
-## Part 2
+## Parte 2
 En el nivel anterior se ha comentado el uso de git guardando la información localmente, en el propio ordenador. El ogjetivo de este nivel es explicar el uso de git remoto, en un repositorio de internet.
 
 ### Git clone
-Si queremos trabajar sobre el repositorio d einternet, debemos utilizar el comando git clone [enlace http o ssh que nos proporciona el repositorio].
+Si queremos trabajar sobre el repositorio de internet, debemos utilizar el comando git clone [enlace http o ssh que nos proporciona el repositorio].
 Un ejemplo seria > git clone https://github.com/exemple/directori.git
 Este comando descarga la rama master, las otras ramas se eligen con otros comandos que ya veremos.
 ### Origin
@@ -230,7 +225,7 @@ Cuando nosotros estamos en local y queremos descargar información del repositor
 
 Primero, hay que tener una rama con el mismo nombre que la rama que queremos descargar o actualizar. Por tanto, si queremos descargar la rama development, y no la tenemos creada, debemos de ejecutar git branch development y git checkout development.
 
-Cuando tenemos la rama con el mismo nombre en el repositorio, ya podemos utilizar el comando git pull origin [nombre de la rama]. Este comando cogerá la información del repositorio y actualizarña origin y la rama local (la rama desde la que hemos ejecutado el comando).
+Cuando tenemos la rama con el mismo nombre en el repositorio, ya podemos utilizar el comando git pull origin [nombre de la rama]. Este comando cogerá la información del repositorio y actualizarla origin y la rama local (la rama desde la que hemos ejecutado el comando).
 
 Atención, si tenemos algunos commits en la rama local, que no tiene repositorio, y tocamos la misma parte de código que los commits que descargamos, habrá conflictos y habrá que solucionarlos.
 
@@ -253,7 +248,7 @@ Local     \        \
 
 ### Git push origin rama
 
-Cuando nuestra verisón (local) del proyecto tiene todos los commits del repositorio, y a demás tiene commits que hemos hehco nosotros, nos interesa actualizar el repositorio. Para hacerlo, utilizaremos el comando git push origin [nombre d ela rama]. Este comando coge todos los commits que tenemos en nuetsra rama y los envía al repositorio remoto, actualizándolo.
+Cuando nuestra versión (local) del proyecto tiene todos los commits del repositorio, y a demás tiene commits que hemos hecho nosotros, nos interesa actualizar el repositorio. Para hacerlo, utilizaremos el comando git push origin [nombre de la rama]. Este comando coge todos los commits que tenemos en nuestra rama y los envía al repositorio remoto, actualizándolo.
 
 *Ejemplo*
 ```
@@ -270,11 +265,11 @@ Local                  /
  j23k   l12j   k32g  a34f
 ```
 
-También podemos hacer git push -u origin [nombre de la rama], así las siguiente veces solo hará falta utilizar el comando git push, y git ya sabrá a qué localización hacer push.
+También podemos hacer git push -u origin [nombre de la rama], así las siguientes veces solo hará falta utilizar el comando git push, y git ya sabrá a qué localización hacer push.
 
 ## Parte 3
 
-En este apartado veremos más a fondo los comandos que trabajan sobre origin y el repositorio, a parte de comandos más complejos.
+En este apartado veremos más a fondo los comandos que trabajan sobre origin y el repositorio, aparte de comandos más complejos.
 
 ### Git fetch
 Si nuestra intención es actualizar el origin descargando los datos del repositorio, debemos actualizar con git fetch.
@@ -293,7 +288,7 @@ Origin           \
 
 ### Git pull
 
-Si lo que queremos es actualizar el origin y actualizar la rama en la que trabajamos, utilizaremos git pull. Este comando es una convinación de git fetch y git merge [rama en las uqe estamos], es decir:
+Si lo que queremos es actualizar el origin y actualizar la rama en la que trabajamos, utilizaremos git pull. Este comando es una combinación de git fetch y git merge [rama en las que estamos], es decir:
 
 *Ejemplo*
 ```
@@ -318,6 +313,7 @@ Local     \        \
 ### Git revert
 
 Este comando es simple, pero muy peligroso. Si hemos hecho un merge con una rama equivocada, o un error que el commit anterior no tenía, este comando es el indicado, pero si nuestro objetivo es tirar más de un commit atrás, hay que vigilar mucho con este comando, ya que puede provocar muchos errores.
+
 
 La intención del comando es hacer un nuevo commit con el uso de un commit anterior. ¿Qué quiere decir esto? Podriamos decir que es un backup de información anterior.
 
